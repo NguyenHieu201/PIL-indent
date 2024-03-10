@@ -141,7 +141,8 @@ class Trainer(object):
 
         self.model.eval()
 
-        for batch in tqdm(eval_dataloader, desc="Evaluating"):
+        # for batch in tqdm(eval_dataloader, desc="Evaluating"):
+        for batch in eval_dataloader:
             batch = tuple(t.to(self.device) for t in batch)
             with torch.no_grad():
                 inputs = {'input_ids': batch[0],
